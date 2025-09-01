@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		086EF9A7FAC04903906100DC /* Okra-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D780A8E476914E3094780464 /* Okra-Regular.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-GoogleMeet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-GoogleMeet.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		259A8B4193184C96B2840A14 /* Okra-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC39E4506FD84AA893FF925F /* Okra-Medium.ttf */; };
+		3B6043C85C624993A84853AF /* Okra-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F87B532C2BD483F9EE40414 /* Okra-ExtraBold.ttf */; };
+		519B2CA475C742DA8A6EA14A /* Okra-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B058D9BC2DD47A1BA9E35A3 /* Okra-Bold.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		7FE914DCA4C6ACF75336AC56 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		BE2AF2934FE341038241A8FB /* Okra-MediumLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8121A0D9DE72476FABD6B91B /* Okra-MediumLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +25,15 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GoogleMeet/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = GoogleMeet/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-GoogleMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMeet.debug.xcconfig"; path = "Target Support Files/Pods-GoogleMeet/Pods-GoogleMeet.debug.xcconfig"; sourceTree = "<group>"; };
+		4B058D9BC2DD47A1BA9E35A3 /* Okra-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Okra-Bold.ttf"; path = "../src/assets/fonts/Okra-Bold.ttf"; sourceTree = "<group>"; };
+		4F87B532C2BD483F9EE40414 /* Okra-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Okra-ExtraBold.ttf"; path = "../src/assets/fonts/Okra-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-GoogleMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMeet.release.xcconfig"; path = "Target Support Files/Pods-GoogleMeet/Pods-GoogleMeet.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-GoogleMeet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoogleMeet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GoogleMeet/AppDelegate.swift; sourceTree = "<group>"; };
+		8121A0D9DE72476FABD6B91B /* Okra-MediumLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Okra-MediumLight.ttf"; path = "../src/assets/fonts/Okra-MediumLight.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GoogleMeet/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC39E4506FD84AA893FF925F /* Okra-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Okra-Medium.ttf"; path = "../src/assets/fonts/Okra-Medium.ttf"; sourceTree = "<group>"; };
+		D780A8E476914E3094780464 /* Okra-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Okra-Regular.ttf"; path = "../src/assets/fonts/Okra-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -60,6 +70,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3AF21ED69E164AACA7372B5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B058D9BC2DD47A1BA9E35A3 /* Okra-Bold.ttf */,
+				4F87B532C2BD483F9EE40414 /* Okra-ExtraBold.ttf */,
+				CC39E4506FD84AA893FF925F /* Okra-Medium.ttf */,
+				8121A0D9DE72476FABD6B91B /* Okra-MediumLight.ttf */,
+				D780A8E476914E3094780464 /* Okra-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +98,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				3AF21ED69E164AACA7372B5C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -161,6 +185,11 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				7FE914DCA4C6ACF75336AC56 /* PrivacyInfo.xcprivacy in Resources */,
+				519B2CA475C742DA8A6EA14A /* Okra-Bold.ttf in Resources */,
+				3B6043C85C624993A84853AF /* Okra-ExtraBold.ttf in Resources */,
+				259A8B4193184C96B2840A14 /* Okra-Medium.ttf in Resources */,
+				BE2AF2934FE341038241A8FB /* Okra-MediumLight.ttf in Resources */,
+				086EF9A7FAC04903906100DC /* Okra-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
