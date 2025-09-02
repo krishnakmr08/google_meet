@@ -17,7 +17,6 @@ const SplashScreen = () => {
         source={require('../assets/icons/meet.png')}
         style={styles.image}
       />
-
       <Image
         source={require('../assets/icons/workspace.png')}
         style={styles.googleIcon}
@@ -31,6 +30,7 @@ export default SplashScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   googleIcon: {
-    width: screenWidth * 0.7,
-    height: screenHeight * 0.7,
+    width: screenWidth * 0.5,
+    height: screenWidth * 0.5,
     resizeMode: 'contain',
     position: 'absolute',
-    bottom: 0,
+    bottom: 20,
   },
 });

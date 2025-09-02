@@ -1,4 +1,4 @@
-import { darkColors, lightColors } from '../utils/constants';
+import { Colors, darkColors, lightColors } from '../utils/constants';
 import { screenHeight, screenWidth } from '../utils/constants';
 
 import { StyleSheet } from 'react-native';
@@ -6,13 +6,16 @@ import { StyleSheet } from 'react-native';
 const authStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
   },
+  subContainer: {
+    height: screenHeight * 0.4,
+  },
   headerText: {
-    color: '#4385F4',
+    color: '#228B22',
     fontSize: 35,
-    fontWeight: '400',
-    fontFamily: 'okra-Regular',
+    fontFamily: 'okra-Medium',
   },
   meetIcon: {
     width: '100%',
@@ -21,7 +24,8 @@ const authStyles = StyleSheet.create({
   msgText: {
     textAlign: 'center',
     fontSize: 18,
-    color: 'gray',
+    color: 'black',
+    fontFamily: 'Okra-Regular',
   },
   input: {
     width: screenWidth * 0.8,
@@ -29,20 +33,16 @@ const authStyles = StyleSheet.create({
     backgroundColor: darkColors[3],
     borderWidth: 1,
     padding: 10,
-    borderRadius: 8,
+    borderRadius: 5,
     fontSize: 15,
     fontWeight: '400',
+    borderColor: 'black',
   },
   button: {
     width: screenWidth * 0.8,
     height: 45,
   },
-  animatedContainer: {
-    height: screenHeight * 0.5,
-    width: screenWidth,
-    alignItems: 'center',
-    gap: 12,
-  },
+
   buttonText: {
     color: '#6E6BF2',
   },
@@ -50,7 +50,7 @@ const authStyles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'okra-medium',
     fontWeight: '400',
-    color: '#fff',
+    color: 'black',
   },
 });
 

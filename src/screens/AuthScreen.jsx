@@ -1,23 +1,29 @@
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   Animated,
   Keyboard,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  Image,
   TextInput,
   TouchableOpacity,
-  TouchableWithoutFeedback,
-  useAnimatedValue,
-  View,
-  Text,
+  ActivityIndicator,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
-import authStyles from '../styles/authStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, darkColors } from '../utils/constants';
-
+import {
+  Colors,
+  darkColors,
+  screenHeight,
+  screenWidth,
+} from '../utils/constants';
 const IMAGE_HEIGHT = 250;
 const IMAGE_MIN_HEIGHT = 150;
+import authStyles from '../styles/authStyles';
+import { resetAndNavigate } from '../utils/NavigationUtils';
 
-const DismissKeyboard = ({ children }) => {
+const DismissKeyBoard = ({ children }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
@@ -26,10 +32,10 @@ const DismissKeyboard = ({ children }) => {
 };
 
 const AuthScreen = () => {
-  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
-  const imageRef = useRef(useAnimatedValue(IMAGE_HEIGHT)).current;
-
+  const imageRef = useRef(new Animated.Value(IMAGE_HEIGHT)).current;
+console.log(phone.length)
   useEffect(() => {
     const keyboardWillShowSub = Keyboard.addListener(
       'keyboardWillShow',
@@ -46,62 +52,131 @@ const AuthScreen = () => {
     };
   }, []);
 
-  const keyboardWillHide = event => {
+  const keyboardWillShow = event => {
     Animated.timing(imageRef, {
-      toValue: IMAGE_HEIGHT,
-      duration: event.duration,
+      toValue: IMAGE_MIN_HEIGHT,
+      duration: 200,
       useNativeDriver: false,
     }).start();
   };
 
-  const keyboardWillShow = event => {
+  const keyboardWillHide = event => {
     Animated.timing(imageRef, {
-      toValue: IMAGE_MIN_HEIGHT,
-      duration: event.duration,
+      toValue: IMAGE_HEIGHT,
+      duration: 200,
       useNativeDriver: false,
     }).start();
   };
+ 
+  
+  const handleLogin = () => {
+  setLoading(true);
+  setTimeout(() => {
+    setLoading(false)
+    resetAndNavigate('HomeScreen');
+  }, 500);
+};
+
   return (
-    <DismissKeyboard>
-      <View style={authStyles.container}>
-        <SafeAreaView />
-        <Text style={authStyles.headerText}>Google Meet</Text>
-        <Animated.View style={authStyles.animatedContainer}>
-          <Animated.Image
-            source={require('../assets/icons/people.png')}
-            style={[authStyles.meetIcon, { height: imageRef }]}
-          />
+    <DismissKeyBoard>
+      <View style={styles.container}>
+        <SafeAreaView style={styles.SubHeader}>
+          <Text style={styles.headerText}>Google Meet</Text>
+        </SafeAreaView>
+        <View>
+          <Animated.View style={authStyles.animatedContainer}>
+            <Animated.Image
+              source={require('../assets/icons/people.png')}
+              style={[authStyles.meetIcon, { height: imageRef }]}
+            />
+          </Animated.View>
+        </View>
+        <View style={{ alignItems: 'center' }}>
           <Text style={authStyles.msgText}>
-            Get started with your work, school, or
+            Get started with your work, school, or {'\n '} personal Google
+            account
           </Text>
-          <Text style={authStyles.msgText}>personal Google account</Text>
-          <TextInput
-            value={email}
-            onChangeText={setEmail}
-            style={authStyles.input}
-            placeholder="Enter email or phone"
-            placeholderTextColor={darkColors[1]}
-            autoFocus={true}
-          />
-          <TouchableOpacity
-            activeOpacity={0.8}
-            style={[
-              authStyles.button,
-              {
-                backgroundColor: email ? Colors.primary : darkColors[3],
-              },
-            ]}
-          >
-            {loading ? (
-              <ActivityIndicator size={'small'} color={'#fff'} />
-            ) : (
-              <Text style={authStyles.text}>Next</Text>
-            )}
-          </TouchableOpacity>
-        </Animated.View>
+        </View>
+        <View style={{ marginVertical: 20 }}>
+          <View style={{ alignItems: 'center' }}>
+            <TextInput
+              value={phone}
+              onChangeText={phone => setPhone(phone.slice(0, 10))}
+              style={authStyles.input}
+              placeholder="Enter phone number "
+              placeholderTextColor={darkColors[1]}
+              autoFocus={true}
+              keyboardType="numeric"
+            />
+
+            <TouchableOpacity
+              style={[
+                styles.button,
+                {
+                  backgroundColor:
+                    phone.length === 10 ? Colors.primary : darkColors[3],
+                },
+              ]}
+              activeOpacity={0.8}
+              disabled={phone.length != 10}
+              onPress={handleLogin}
+             
+            >
+              {loading ? (
+                <ActivityIndicator size={'small'} color={'white'} />
+              ) : (
+                <Text style={styles.text}>Next</Text>
+              )}
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-    </DismissKeyboard>
+    </DismissKeyBoard>
   );
 };
 
 export default AuthScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+  SubHeader: {
+    alignItems: 'center',
+    paddingTop: 5,
+  },
+  headerText: {
+    color: 'green',
+    fontSize: 30,
+    fontFamily: 'Okra-Regular',
+  },
+  subContainer: {
+    height: screenHeight * 0.4,
+    width: '100%',
+    alignItems: 'center',
+  },
+  icon: {
+    height: 150,
+    width: 150,
+  },
+  button: {
+    width: screenWidth * 0.8,
+    height: 45,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 20,
+    padding: 10,
+    borderColor: 'black',
+    shadowColor: '#f5f5f5',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  text: {
+    textAlign: 'center',
+    fontSize: 15,
+    fontFamily: 'Okra-Medium',
+  },
+});
