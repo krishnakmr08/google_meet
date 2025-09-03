@@ -36,6 +36,41 @@ export const useLiveMeetStore = create()(
     updateParticipant: updatedParticipant => {
       const { participants } = get();
 
+      set({
+        participants: participants.map(p =>
+          p.userId === updatedParticipant.userId
+            ? {
+                ...p,
+                micOn: updatedParticipant.micOn,
+                videoOn: updatedParticipant.videoOn,
+              }
+            : p,
+        ),
+      });
+    },
+
+    setStreamURL: (participantId, streamURL) => {
+      const { participants } = get();
+      const updatedParticipants = participants.map(p => {
+        if (p.userId === participantId) {
+          return { ...p, streamURL };
+        }
+        return p;
+      });
+
+      if (!participants.some(p => p.userId === participantId)) {
+        updatedParticipants.push({ id: participantId, streamURL });
+      }
+
+      set({ participants: updatedParticipants });
+    },
+
+    toggle: type => {
+      if (type === 'mic') {
+        set(state => ({ micOn: !state.micOn }));
+      } else if (type === 'video') {
+        set(state => ({ videoOn: !state.videoOn }));
+      }
     },
   }),
   {

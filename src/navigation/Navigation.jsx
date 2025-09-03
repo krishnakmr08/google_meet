@@ -16,7 +16,7 @@ const Navigation = () => {
     <WSProvider>
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName="SplashScreen"
+        initialRouteName="HomeScreen"
         screenOptions={{
           headerShown: false,
         }}
