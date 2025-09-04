@@ -32,7 +32,6 @@ const HomeScreen = () => {
 
   const joinViaSession = async id => {
     const storedName = user?.name;
-
     if (!storedName) {
       Alert.alert('Fill your details first to proceed');
       return;
@@ -73,7 +72,7 @@ const HomeScreen = () => {
         data={sessions}
         renderItem={renderSessions}
         key={item => item}
-        contentContainerStyle={{ padding: 20 }}
+        contentContainerStyle={{ paddingVertical: 15 }}
         ListEmptyComponent={
           <>
             <Image

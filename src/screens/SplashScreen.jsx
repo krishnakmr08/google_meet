@@ -15,7 +15,7 @@ const SplashScreen = () => {
     <View style={styles.container}>
       <Image
         source={require('../assets/icons/meet.png')}
-        style={styles.image}
+        style={styles.icon}
       />
       <Image
         source={require('../assets/icons/workspace.png')}
@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  image: {
-    width: screenWidth * 0.4,
-    height: screenHeight * 0.4,
+  icon: {
+    width: screenWidth * 0.8,
+    height: screenHeight * 0.8,
     resizeMode: 'contain',
   },
   googleIcon: {

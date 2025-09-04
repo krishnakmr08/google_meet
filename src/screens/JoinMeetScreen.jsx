@@ -34,7 +34,7 @@ const JoinMeetScreen = () => {
         userId: user?.id,
         sessionId,
       });
-      navigate('PrePareMeetScreen');
+      navigate('PrepareMeetScreen');
     }
   };
 
