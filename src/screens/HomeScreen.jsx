@@ -17,6 +17,7 @@ import { useWS } from '../service/api/WSProvider';
 import { Colors } from '../utils/constants';
 import { removeHyphens, addHyphens } from '../utils/Helpers';
 import { useLiveMeetStore } from '../service/MeetStore';
+import { checkSession } from '../service/api/session';
 const HomeScreen = () => {
   const { emit } = useWS();
   const { user, sessions, addSession, removeSession } = useUserStore();
@@ -30,14 +31,17 @@ const HomeScreen = () => {
     navigate('JoinMeetScreen');
   };
 
-  const joinViaSession = async id => {
+  const joinViaSessionId = async id => {
     const storedName = user?.name;
+    console.log(storedName)
     if (!storedName) {
+      
       Alert.alert('Fill your details first to proceed');
       return;
     }
 
     const isAvailable = await checkSession(id);
+    console.log(isAvailable)
     if (isAvailable) {
       emit('prepare-session', {
         userId: user?.id,
@@ -56,11 +60,17 @@ const HomeScreen = () => {
   const renderSessions = ({ item }) => {
     return (
       <View style={homeStyles.sessionContainer}>
-        <Calendar size={RFValue(20)} color={Colors.secondary_light} />
+        <Calendar size={RFValue(20)} color={Colors.text} />
         <View style={homeStyles.sessionTextContainer}>
           <Text style={homeStyles.sessionTitle}>{addHyphens(item)}</Text>
           <Text style={homeStyles.sessionTime}>Just join and enjoy party!</Text>
         </View>
+        <TouchableOpacity
+          style={homeStyles.joinButton}
+          onPress={() => joinViaSessionId(item)}
+        >
+          <Text style={homeStyles.joinButtonText}>Join</Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -80,10 +90,11 @@ const HomeScreen = () => {
               style={homeStyles.img}
             />
             <Text style={homeStyles.title}>
-              Video calls and meetings for everyone
+              Video calls and meetings  for {'\n'} everyone
             </Text>
             <Text style={homeStyles.subTitle}>
-              Connect,collaborate, and celebrate from anywhere with Google Meet
+              Connect, collaborate, and celebrate from {'\n'} anywhere with
+              Google Meet
             </Text>
           </>
         }
